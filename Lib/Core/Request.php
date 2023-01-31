@@ -19,8 +19,8 @@ class Request{
 
 		$this->prefix = $prefix;
 		$this->httpMethod = filter_input(INPUT_SERVER, "REQUEST_METHOD");
-		$this->get = filter_input_array(INPUT_GET);
-		$this->post = filter_input_array(INPUT_POST);
+		$this->get = filter_input_array(INPUT_GET) ?? [];
+		$this->post = filter_input_array(INPUT_POST) ?? [];
 		$this->uri = parse_url(filter_input(INPUT_SERVER, "REQUEST_URI"), PHP_URL_PATH);
 	}
 
